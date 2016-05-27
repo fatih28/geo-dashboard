@@ -1,0 +1,73 @@
+<head>
+<title>Dashboard2_JsonFormat</title>
+<!-- link datatables css -->
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css"
+	href="bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script type='text/javascript'
+	src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js?'></script>
+<script type='text/javascript'
+	src='//code.jquery.com/jquery-1.12.0.min.js'></script>
+<!--Scripts für DataTables  -->
+<script type='text/javascript'
+	src='https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js'></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
+<!--END für DataTables  -->
+<script
+	src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link
+	href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+	rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />	
+</head>
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Intelligent Asset Management
+					Dashboard</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<p class="navbar-text">Bachelor Thesis: Fatih Akyildiz</p>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li><a  href="Dashboard1_Hana.html">Dashboard1:
+					HANA </a></li>
+			<li class="active"><a href="Dashboard2_JsonFormat.html">Dashboard2:Json</a></li>
+		</ul>
+		<div id="map" style="height: 300px; width: 100%;"></div>
+
+	</div>
+
+	<div id="Placeholder">
+		<center>
+
+			<h4>Bachelorarbeit: Fatih Akyildiz: VLBA (Very Large Business
+				Applications)</h4>
+		</center>
+	</div>
+	
+	<script src="JS/JSON_DATA/pipeline.json"></script>
+	<script src="JS/MAP/map3.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

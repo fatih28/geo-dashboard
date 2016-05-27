@@ -1,0 +1,222 @@
+<head>
+<title>Dashboard1_HANA</title>
+
+<!-- link datatables css -->
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css"
+	href="bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css"
+	href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script type='text/javascript'
+	src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js?'></script>
+<script type='text/javascript'
+	src='//code.jquery.com/jquery-1.12.0.min.js'></script>
+<!--Scripts für DataTables  -->
+<script type='text/javascript'
+	src='https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js'></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
+<!--END für DataTables  -->
+<script
+	src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<link
+	href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+	rel='stylesheet' />
+</head>
+<body>
+
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Intelligent Asset Management
+					Dashboard</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<p class="navbar-text">Bachelor Thesis: Fatih Akyildiz</p>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="Dashboard1_Hana.html">Dashboard1:
+					HANA </a></li>
+			<li><a href="Dashboard2_JsonFormat.html">Dashboard2:Json</a></li>
+		</ul>
+		<div id="map" style="height: 300px; width: 100%;"></div>
+	</div>
+
+	<div id="Placeholder">
+		<center>
+
+			<h4>Bachelorarbeit: Fatih Akyildiz: VLBA (Very Large Business
+				Applications)</h4>
+		</center>
+	</div>
+
+	<div class="col-md-12">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href="#collapse1"> Metainformation 1</a>
+					</h4>
+				</div>
+				<div id="collapse1" class="panel-collapse collapse in">
+					<div class="panel-body">
+
+						<table id="empTable" class="display" cellspacing="0" width="60%">
+							<thead>
+								<tr>
+									<th>OBJECTID</th>
+									<th>Messmeter</th>
+									<th>Potential__V_Ein</th>
+									<th>Potential_V_Aus</th>
+									<th>Gradient_mV_Ein</th>
+									<th>Gradient_mV_Aus</th>
+									<!-- 	<th>Kommentar</th>
+					<th>Referenz</th>
+					<th>VOLTAGE</th>
+					<th>EQUI_ID</th>
+					<th>GlobalID</th> -->
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>OBJECTID</th>
+									<th>Messmeter</th>
+									<th>Potential__V_Ein</th>
+									<th>Potential_V_Aus</th>
+									<th>Gradient_mV_Ein</th>
+									<th>Gradient_mV_Aus</th>
+									<!-- th>Kommentar</th>
+					<th>Referenz</th>
+					<th>VOLTAGE</th>
+					<th>EQUI_ID</th>
+					<th>GlobalID</th>
+ -->
+								</tr>
+							</tfoot>
+						</table>
+
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href="#collapse2"> Metainformation 2</a>
+					</h4>
+				</div>
+				<div id="collapse2" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table id="empTable2" class="display" cellspacing="0" width="60%">
+							<thead>
+
+								<tr>
+									<th>Längentyp</th>
+									<th>Längen und Breitengrade</th>
+
+
+									<!-- 	<th>Kommentar</th>
+					<th>Referenz</th>
+					<th>VOLTAGE</th>
+					<th>EQUI_ID</th>
+					<th>GlobalID</th> -->
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Längentyp</th>
+									<th>Längen und Breitengrade</th>
+
+									<!-- th>Kommentar</th>
+					<th>Referenz</th>
+					<th>VOLTAGE</th>
+					<th>EQUI_ID</th>
+					<th>GlobalID</th>
+ -->
+								</tr>
+							</tfoot>
+						</table>
+
+
+
+
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href="#collapse3"> Metainformation 3</a>
+					</h4>
+				</div>
+				<div id="collapse3" class="panel-collapse collapse">
+					<div class="panel-body">
+						<table id="empTable3" class="display" cellspacing="0" width="60%">
+							<thead>
+
+								<tr>
+									<th>EQUI_ID</th>
+									<th>Feature</th>
+									<th>Längen und Breitengrad</th>
+
+
+									<!-- 	<th>Kommentar</th>
+					<th>Referenz</th>
+					<th>VOLTAGE</th>
+					<th>EQUI_ID</th>
+					<th>GlobalID</th> -->
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>EQUI_ID</th>
+									<th>Feature</th>
+									<th>Längen und Breitengrad</th>
+
+									<!-- th>Kommentar</th>
+					<th>Referenz</th>
+					<th>VOLTAGE</th>
+					<th>EQUI_ID</th>
+					<th>GlobalID</th>
+ -->
+								</tr>
+							</tfoot>
+						</table>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+
+	<script src="JS/MAP/map5.js"></script>
+	<script src="JS/DATA_TABLES/dataTable.js"></script>
+	<script src="JS/DATA_TABLES/dataTable_points.js"></script>
+	<script src="JS/DATA_TABLES/dataTable_metering.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
