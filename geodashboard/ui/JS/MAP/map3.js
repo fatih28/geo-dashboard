@@ -1,3 +1,5 @@
+// Map für die interne JSON DATEI
+
 //Setting up the map	
 
 var map = L.map('map', {

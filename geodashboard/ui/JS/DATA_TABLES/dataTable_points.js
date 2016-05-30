@@ -20,6 +20,7 @@ $(document).ready(function() {
 			tables = JSON.parse(myRecords)
 			$("#empTable2").dataTable({
 				"aaData" : tables,
+				responsive : true,
 				"bJQueryUI" : true,
 				"bDestroy" : true,
 				"iDisplayLength" : 10,

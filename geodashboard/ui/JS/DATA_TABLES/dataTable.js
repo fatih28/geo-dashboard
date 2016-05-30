@@ -11,6 +11,8 @@
 var myRecords = []
 var tables = [];
 
+	
+
 $(document).ready(function() {
 	$.ajax({
 		url : '../model/INTENSIVE_MEASUREMENT.xsjs',
@@ -20,6 +22,8 @@ $(document).ready(function() {
 			tables = JSON.parse(myRecords)
 			$("#empTable").dataTable({
 				"aaData" : tables,
+				responsive : true,
+
 				"bJQueryUI" : true,
 				"bDestroy" : true,
 				"iDisplayLength" : 10,

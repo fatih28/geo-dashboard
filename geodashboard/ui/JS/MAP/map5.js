@@ -61,8 +61,37 @@ var myIcon = L.icon({
 // ___________________________________________________________________________________________________________________________________________________________________________
 var Data1 = [];
 var Data2 = [];
-query1(Data1);
-query2(Data2);
+
+$("#load1").on("click", function() {
+	loader()
+});
+
+function loader() {
+	// alert("Funktioniert");
+	query1(Data1);
+
+}
+
+$("#load2").on("click", function() {
+	loader2()
+});
+
+function loader2() {
+	// alert("Funktioniert");
+	query2(Data2);
+
+}
+
+$("#remove").on("click", function() {
+	remove();
+});
+
+function remove() {
+window.location.reload()
+}
+
+
+// window.location.reload();
 
 function query1(Data1) {
 	$.ajax({
@@ -90,4 +119,32 @@ function query2(Data2) {
 		}
 	});
 }
+
+function query4(Data1) {
+	$.ajax({
+		url : '../model/equi.xsjs',
+		data : Data1,
+		success : function(Data1) {
+			$('#wrapper').hide();
+			geojson = L.geoJson(Data1, {}).addTo(map);
+		}
+	});
+}
+
+function query3(Data2) {
+	$.ajax({
+		url : '../model/metering.xsjs',
+		data : Data2,
+		success : function(Data2) {
+			$('#wrapper').hide();
+			geojson = L.geoJson(Data2, {
+
+				onEachFeature : function(feature, layer) {
+					layer.setIcon(myIcon);
+				}
+			}).addTo(map);
+		}
+	});
+}
+
 // ______________________________________________________________________________________________________________________________________________________________________________
