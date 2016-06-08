@@ -23,7 +23,11 @@ L
 							+ '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, '
 							+ 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 					id : 'mapbox.streets',
+
 				}).addTo(map);
+
+// 13.242893,
+// 52.533835
 
 /**
  * Styles für die MAP:
@@ -61,9 +65,10 @@ var myIcon = L.icon({
 // ___________________________________________________________________________________________________________________________________________________________________________
 var Data1 = [];
 var Data2 = [];
+var Data3 = [];
 
 $("#load1").on("click", function() {
-	loader()
+	loader();
 });
 
 function loader() {
@@ -73,23 +78,24 @@ function loader() {
 }
 
 $("#load2").on("click", function() {
-	loader2()
+	loader2();
 });
 
 function loader2() {
 	// alert("Funktioniert");
 	query2(Data2);
+//	query3(Data2);
 
 }
+
 
 $("#remove").on("click", function() {
 	remove();
 });
 
 function remove() {
-window.location.reload()
+	window.location.reload()
 }
-
 
 // window.location.reload();
 
@@ -113,38 +119,38 @@ function query2(Data2) {
 			geojson = L.geoJson(Data2, {
 
 				onEachFeature : function(feature, layer) {
+					var popupText = "ROW_ID: " + feature.ROW_ID
+					+ "<br>Location: "
+					+ feature.geometry.coordinates
+					+ "";
+			layer.bindPopup(popupText);
 					layer.setIcon(myIcon);
 				}
 			}).addTo(map);
-		}
-	});
-}
-
-function query4(Data1) {
-	$.ajax({
-		url : '../model/equi.xsjs',
-		data : Data1,
-		success : function(Data1) {
-			$('#wrapper').hide();
-			geojson = L.geoJson(Data1, {}).addTo(map);
 		}
 	});
 }
 
 function query3(Data2) {
 	$.ajax({
-		url : '../model/metering.xsjs',
+		url : '../model/info_metering.xsjs',
 		data : Data2,
 		success : function(Data2) {
 			$('#wrapper').hide();
-			geojson = L.geoJson(Data2, {
+			geojson = L.geoJson(
+					Data2,
+					{
+						onEachFeature : function(feature, layer) {
+							var popupText = "Asset_ID: " + feature.ROW_ID
+									+ "<br>Location: "
+									+ feature.geometry.coordinates
+									+ "<br><a href='" + "'>More info</a>";
+							layer.bindPopup(popupText);
+							layer.setIcon(myIcon);
 
-				onEachFeature : function(feature, layer) {
-					layer.setIcon(myIcon);
-				}
-			}).addTo(map);
+						}
+					}).addTo(map);
 		}
 	});
-}
 
-// ______________________________________________________________________________________________________________________________________________________________________________
+}

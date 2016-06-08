@@ -4,16 +4,16 @@
  * SAP HANA Plattform ausgeführt
  * 
  * Aus der Hana-DB werden bestimmte Parameter und die ST_Geometry Daten, die als
- * SHAPE gespeichert sind mit der Funktion "SHAPE"."ST_AsGeoJson()" von der
- * Tabelle "EQUIPMENT" abgefragt. Diese Daten werden im JSON Format gespeichert
+ * SHAPE gespeichert sind mit der Funktion "XY_POINT"."ST_AsGeoJson()" von der
+ * Tabelle "METERING" abgefragt. Diese Daten werden im JSON Format gespeichert
  * und werden später per AJAX und in die MAP hinzugefügt.
  */
-// ________________________________________________________________________________________________________________________________
+// ____________________________________________________________________________________________________________
 var eString = "";
 try {
 	var conn = $.db.getConnection();
 	var pstmt = conn
-			.prepareStatement("Select  EQUI_ID, SHAPE.ST_AsGeoJson() AS LineString from DEV_DK10VNE0VKQK3U1OQO9EPDEDN.EQUIPMENT");
+			.prepareStatement("Select top 10 ROW_ID, XY_POINT.ST_AsGeoJson() AS POINT from DEV_DK10VNE0VKQK3U1OQO9EPDEDN.METERING");
 	var rs = pstmt.executeQuery();
 	var response = {
 		type : "FeatureCollection"
@@ -22,11 +22,10 @@ try {
 	while (rs.next()) {
 		response.features.push({
 			type : "Feature",
-			EQUI_ID : rs.getString(1),
+			ROW_ID : rs.getString(1),
 			geometry : JSON.parse(rs.getString(2))
 		});
 	}
-	
 	response.properties = {};
 	rs.close();
 	pstmt.close();
@@ -40,10 +39,9 @@ try {
 	var prop = "";
 	for (prop in e) {
 		eString += prop + ": " + e[prop] + "\n";
-
 		response.status = $.net.http.INTERNAL_SERVER_ERROR;
 		response.contentType = "plain/text";
 		response.setBody(eString);
 	}
 }
-// _____________________________________________________________________________________________________________________________________________________________________
+//____________________________________________________________________________________________________________
