@@ -11,8 +11,6 @@
 var myRecords = []
 var tables = [];
 
-	
-
 $(document).ready(function() {
 	$.ajax({
 		url : '../model/INTENSIVE_MEASUREMENT.xsjs',

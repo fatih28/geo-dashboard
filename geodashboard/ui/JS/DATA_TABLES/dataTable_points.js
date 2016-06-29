@@ -13,7 +13,7 @@ var tables = [];
 
 $(document).ready(function() {
 	$.ajax({
-		url : '../model/metering.xsjs',
+		url : '../model/info_metering.xsjs',
 		data : Data2,
 		success : function(Data) {
 			myRecords = JSON.stringify(Data.features);

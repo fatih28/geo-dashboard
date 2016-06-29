@@ -26,7 +26,7 @@ try {
 			geometry : JSON.parse(rs.getString(2))
 		});
 	}
-	
+
 	response.properties = {};
 	rs.close();
 	pstmt.close();

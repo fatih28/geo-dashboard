@@ -13,7 +13,7 @@ var eString = "";
 try {
 	var conn = $.db.getConnection();
 	var pstmt = conn
-	.prepareStatement("SELECT EQUI_ID, SHAPE.ST_AsGeoJson() AS POINT from DEV_DK10VNE0VKQK3U1OQO9EPDEDN.METERINGE WHERE MOD(EQUI_ID,10)=1");
+			.prepareStatement("SELECT EQUI_ID, SHAPE.ST_AsGeoJson() AS POINT from DEV_DK10VNE0VKQK3U1OQO9EPDEDN.METERINGE WHERE MOD(EQUI_ID,10)=1");
 	var rs = pstmt.executeQuery();
 	var response = {
 		type : "FeatureCollection"
@@ -44,4 +44,4 @@ try {
 		response.setBody(eString);
 	}
 }
-//____________________________________________________________________________________________________________
+// ____________________________________________________________________________________________________________
