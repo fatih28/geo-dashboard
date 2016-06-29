@@ -8,13 +8,10 @@
 // ____________________________________________________________________________________________________________
 var eString = "";
 try {
+	
 	var conn = $.db.getConnection();
 	var pstmt = conn
-			.prepareStatement("Select top 1000  *  from DEV_DK10VNE0VKQK3U1OQO9EPDEDN.INTENSIVEMEASUREMENT");
-	// .prepareStatement("Select OBJECTID, Messmeter, Potential__V_Ein,
-	// Potential_V_Aus, Gradient_mV_Ein, Gradient_mV_Aus, Kommentar,Referenz,
-	// VOLTAGE, EQUI_ID, GlobalID from
-	// DEV_DK10VNE0VKQK3U1OQO9EPDEDN.INTENSIVEMEASUREMENT");
+			.prepareStatement("Select * from DEV_DK10VNE0VKQK3U1OQO9EPDEDN.INTENSIVEMEASUREMENT");
 	var rs = pstmt.executeQuery();
 	var response = {};
 	response.features = [];
@@ -26,12 +23,6 @@ try {
 			Potential_V_Aus : rs.getString(4),
 			Gradient_mV_Ein : rs.getString(5),
 			Gradient_mV_Aus : rs.getString(6)
-			/*Kommentar : rs.getString(7),
-			Referenz : rs.getString(8),
-			VOLTAGE : rs.getString(9),
-			EQUI_ID : rs.getString(10),
-			GlobalID : rs.getString(11)*/
-
 		});
 	}
 	/***************************************************************************
